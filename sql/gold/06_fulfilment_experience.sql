@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW gold_fulfilment_experience AS
+CREATE OR REPLACE VIEW ecommerce_gold.gold_fulfilment_experience AS
 
 SELECT
     Order_Status,
@@ -30,6 +30,6 @@ SELECT
         2
     ) AS return_flag_rate_pct
 
-FROM silver_ecommerce_customer
+FROM ecommerce_silver.silver_ecommerce_customer
 
 GROUP BY Order_Status;

@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW gold_fulfilment_risk AS
+CREATE OR REPLACE VIEW ecommerce_gold.gold_fulfilment_risk AS
 
 SELECT
     Order_Status,
@@ -18,7 +18,7 @@ SELECT
         2
     ) AS net_sales_share_pct
 
-FROM silver_ecommerce_customer
+FROM ecommerce_silver.silver_ecommerce_customer
 
 WHERE Financial_Data_Quality = 'Complete'
 

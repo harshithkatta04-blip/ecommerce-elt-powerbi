@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW gold_customer_segment_performance AS
+CREATE OR REPLACE VIEW ecommerce_gold.gold_customer_segment_performance AS
 
 SELECT
     Customer_Segment,
@@ -20,7 +20,7 @@ SELECT
         2
     ) AS profit_margin_pct
 
-FROM silver_ecommerce_customer
+FROM ecommerce_silver.silver_ecommerce_customer
 
 WHERE Order_Status = 'Delivered'
   AND Financial_Data_Quality = 'Complete'

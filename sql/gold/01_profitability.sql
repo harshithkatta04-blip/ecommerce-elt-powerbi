@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW gold_category_profitability AS
+CREATE OR REPLACE VIEW ecommerce_gold.gold_category_profitability AS
 SELECT
     Category,
     COUNT(DISTINCT Order_ID) AS total_orders,
@@ -9,13 +9,13 @@ SELECT
         2
     ) AS profit_margin_pct,
     ROUND(AVG(Discount_Pct), 2) AS avg_discount_pct
-FROM silver_ecommerce_customer
+FROM ecommerce_silver.silver_ecommerce_customer
 WHERE Order_Status = 'Delivered'
   AND Financial_Data_Quality = 'Complete'
 GROUP BY Category;
 
 
-CREATE OR REPLACE VIEW gold_product_profitability AS
+CREATE OR REPLACE VIEW ecommerce_gold.gold_product_profitability AS
 SELECT
     Product_Name,
     COUNT(DISTINCT Order_ID) AS total_orders,
@@ -26,13 +26,13 @@ SELECT
         2
     ) AS profit_margin_pct,
     ROUND(AVG(Discount_Pct), 2) AS avg_discount_pct
-FROM silver_ecommerce_customer
+FROM ecommerce_silver.silver_ecommerce_customer
 WHERE Order_Status = 'Delivered'
   AND Financial_Data_Quality = 'Complete'
 GROUP BY Product_Name;
 
 
-CREATE OR REPLACE VIEW gold_channel_region_marketing AS
+CREATE OR REPLACE VIEW ecommerce_gold.gold_channel_region_marketing AS
 SELECT
     Sales_Channel,
     Region,
@@ -44,7 +44,7 @@ SELECT
         SUM(Profit) / NULLIF(SUM(Net_Sales), 0) * 100,
         2
     ) AS profit_margin_pct
-FROM silver_ecommerce_customer
+FROM ecommerce_silver.silver_ecommerce_customer
 WHERE Order_Status = 'Delivered'
   AND Financial_Data_Quality = 'Complete'
 GROUP BY
