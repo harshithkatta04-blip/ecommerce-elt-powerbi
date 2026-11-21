@@ -4,5 +4,6 @@ __pycache__/
 *.pyc
 .vscode/
 
+# Raw source data is retained in the submission package but can be ignored in Git.
 data/raw/*
 !data/raw/.gitkeep
